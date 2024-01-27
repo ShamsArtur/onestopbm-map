@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="./favicon.png">
 
-  <title>Loading the map...</title>
-
   <!-- jQuery-->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
@@ -60,28 +58,31 @@
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+  <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js" integrity="sha512-Abr21JO2YqcJ03XGZRPuZSWKBhJpUAR6+2wH5zBeO4wAw4oksr8PRdF+BKIRsxvCdq+Mv4670rZ+dLnIyabbGw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 </head>
+<style>
+    body {
+        margin: 0;
+    }
+    html, body, #map {
+        height: 100%
+    }
+</style>
 
 <body>
-
-  <div class="loader">Loading...</div>
-  <div id="map"></div>
-  <table id="maptable" class="display"></table>
-
-  <script type="text/javascript">
-    var map = L.map('map', {
-      attributionControl: false,
-      zoomControl: false,
-      scrollWheelZoom: false,
-      tap: false
-    }).setView([51.66373370153074, -0.04456191780733175], 11); // default center is overridden by Google Sheet options and points
-  </script>
-
+    <div id="map"></div>
+       
   <script type="text/javascript" src="./google-doc-url.js"></script>
   <script type="text/javascript" src="./scripts/constants.js"></script>
   <!-- <script type="text/javascript" src="./scripts/palette.js"></script> -->
   <script type="text/javascript" src="./scripts/polylabel.js"></script>
   <script type="text/javascript" src="./scripts/map.js"></script>
+
 
 </body>
 </html>
