@@ -132,6 +132,7 @@ $(window).on('load', function() {
                 parsedData.forEach(function(item){
                     hashItem = {};
                     var key = item["DELIVERY ADDRESS"] + '-' + item["ACCOUNT REFERENCE"];
+                    console.log(item);
                     if (hash.has(key)){
                         hashItem = hash.get(key);
                     } else{
