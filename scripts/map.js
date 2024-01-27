@@ -138,7 +138,7 @@ $(window).on('load', function() {
                         hashItem.name = item["POST CODE"] + ' ' + item["DELIVERY ADDRESS"];
                         hashItem.customer = item["ACCOUNT REFERENCE"];
                         hashItem.date = "01.01.0001"
-                        hashItem.coordinates = [item["LATITUDE"], item["LONGITUDE"]];//getCoordinates(item["POST CODE"] + " " + item["DELIVERY ADDRESS"]);
+                        hashItem.coordinates = [item["Latitude"], item["Longitude"]];//getCoordinates(item["POST CODE"] + " " + item["DELIVERY ADDRESS"]);
                         hashItem.sum = 0;
                     }
 
