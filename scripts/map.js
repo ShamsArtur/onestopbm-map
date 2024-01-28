@@ -35,31 +35,11 @@ $(window).on('load', function() {
 
           L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
           
-        //   var geojsonLayer = new L.geoJson.ajax("https://raw.githubusercontent.com/ShamsArtur/onestop-geodata-areas/main/areas.geojson", {
-		// 	pointToLayer: function(feature, latlng) {
-		// 		return new L.marker(latlng, {icon: shopIcon});
-		// 	},
-		// 	onEachFeature: function (f, l) {
-				
-		// 		var popupText = '<pre><h2>' + 
-		// 						'Postcode zone: ' + 
-        //                         f.properties.name + 
-        //                         '</h2></pre>';
-				
-		// 		if (f.properties.freeDeliveryFrom != null){
-		// 			if (f.properties.freeDeliveryFrom < 200){
-		// 				l.setStyle({fillColor: "green", fillOpacity: 0.4});
-		// 			} else{
-        //                 if (f.properties.name == "N20"){
-		// 				    l.setStyle({fillColor: "orange", fillOpacity: 0.2});
-        //                 } else{
-        //                     l.setStyle({fillColor: "orange", fillOpacity: 0.4});
-        //                 }
-		// 			}
-		// 		}
-        //             l.bindPopup(popupText);
-		// 		}
-		// }).addTo(map);
+          const greenIcon = new LeafIcon({
+            iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
+            shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png'
+          });
+          L.marker([lat, lng], {icon: greenIcon}).addTo(map);
 
 		L.easyButton('fa-home', 
 			function(btn,map){
