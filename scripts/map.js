@@ -39,7 +39,7 @@ $(window).on('load', function() {
             iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
             shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png'
           });
-          L.marker([lat, lng], {icon: greenIcon}).addTo(map);
+          L.marker([lat, lng], {icon: greenIcon}).addTo(map).bindPopup(L.popup().setContent("Our Store"));
 
 		L.easyButton('fa-home', 
 			function(btn,map){
