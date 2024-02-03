@@ -174,7 +174,7 @@ $(window).on('load', function() {
         var popup = L.popup()
             .setContent(popupText);
         
-        var marker = L.marker(item.coordinates, { icon: markerIcon }).addTo(map).bindPopup(popup);
+        var marker = L.marker(item.coordinates, { icon: markerIcon }).addTo(map).bindPopup(popup, {classname: 'tooltip'});
     }
 
 });
