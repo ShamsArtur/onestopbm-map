@@ -195,7 +195,7 @@ $(window).on('load', function() {
             shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png'
         });
 
-        let competitors = [
+        var competitors = [
             {
                 name: "Travis Perkins",
                 address: "46 Crown Rd, Enfield EN1 1TH, United Kingdom",
@@ -245,6 +245,7 @@ $(window).on('load', function() {
                 latitude: -0.05444899814667487
             }
         ];
+        console.log(competitors);
 
         for (var i = 0; i++; i < competitors.length){
             console.log(competitors[i]);
