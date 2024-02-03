@@ -396,7 +396,7 @@ $(window).on('load', function() {
                                     'Name: ' + f.properties.name;
                     popupText += '</h2></div>';
                     l.setStyle({ 
-                        weight: 1.5,
+                        weight: 0.9,
                         color: 'black',
                         fillOpacity: 0.001,
                         /* fillColor: "green", fillOpacity: 0.4 */ });
