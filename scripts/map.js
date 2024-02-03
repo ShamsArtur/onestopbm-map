@@ -199,50 +199,50 @@ $(window).on('load', function() {
             {
                 name: "Travis Perkins",
                 address: "46 Crown Rd, Enfield EN1 1TH, United Kingdom",
-                longitude: 51.649331415953924,
-                latitude: -0.05305316931048556
+                latitude: 51.649331415953924,
+                longitude: -0.05305316931048556
             },
             {
                 name: "Travis Perkins",
                 address: "Sopers Rd, Cuffley, Potters Bar EN6 4RY, United Kingdom",
-                longitude: 51.70718637843609, 
-                latitude: -0.10861714230223259
+                latitude: 51.70718637843609, 
+                longitude: -0.10861714230223259
             },
             {
                 name: "Travis Perkins",
                 address: "Bridge Dr, Broomfield Ln, London N13 4EU, United Kingdom",
-                longitude: 51.616185881947935, 
-                latitude: -0.11174531349143212
+                latitude: 51.616185881947935, 
+                longitude: -0.11174531349143212
             },
             {
                 name: "Build It Builders Merchants",
                 address: "Units 1 - 4 Leeside Works, Leeside Rd, London N17 0SG, United Kingdom",
-                longitude: 51.60643159680381, 
-                latitude: -0.04585818280191764
+                latitude: 51.60643159680381, 
+                longitude: -0.04585818280191764
             },
             {
                 name: "Lawsons Edmonton - Timber, Building & Fencing Supplies",
                 address: "401 Montagu Rd, London N9 0HP, United Kingdom",
-                longitude: 51.62418938937044, 
-                latitude: -0.04757667116381069,
+                latitude: 51.62418938937044, 
+                longitude: -0.04757667116381069,
             },
             {
                 name: "Jewson Waltham Abbey",
                 address: "Bridge House Wharf, Lea Rd, Waltham Cross, Waltham Abbey EN9 1AZ, United Kingdom",
-                longitude: 51.686507910284924, 
-                latitude: -0.012429213491432082
+                latitude: 51.686507910284924, 
+                longitude: -0.012429213491432082
             },
             {
                 name: "Builder Depot - New Southgate",
                 address: "Station Rd, Arnos Grove, London N11 1QJ, United Kingdom",
-                longitude: 51.612200479446706, 
-                latitude: -0.14028678280191761
+                latitude: 51.612200479446706, 
+                longitude: -0.14028678280191761
             },
             {
                 name: "Selco Builders Warehouse",
                 address: "Crown Rd, Enfield EN1 1TX, United Kingdom",
-                longitude: 51.65265165770028, 
-                latitude: -0.05444899814667487
+                latitude: 51.65265165770028, 
+                longitude: -0.05444899814667487
             }
         ];
         competitors.forEach((item)=>{
