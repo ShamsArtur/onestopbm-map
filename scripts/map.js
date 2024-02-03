@@ -191,8 +191,8 @@ $(window).on('load', function() {
         });
 
         const redIcon = new LeafIcon({
-            iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png',
-            shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png'
+            iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-red.png',
+            shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png'
         });
 
         var competitors = [
