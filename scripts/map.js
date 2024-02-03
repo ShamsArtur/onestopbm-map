@@ -181,10 +181,20 @@ $(window).on('load', function() {
 
     function addCompetitors(){
 
+        var LeafIcon = L.Icon.extend({
+            options: {
+                   iconSize:     [38, 95],
+                   shadowSize:   [50, 64],
+                   iconAnchor:   [22, 94],
+                   shadowAnchor: [4, 62],
+                   popupAnchor:  [-3, -76]
+            }
+        });
+        
         const redIcon = new LeafIcon({
             iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png',
             shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png'
-          });
+        });
 
         let competitors = [
             {
