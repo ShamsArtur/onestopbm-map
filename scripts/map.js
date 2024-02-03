@@ -40,6 +40,7 @@ $(window).on('load', function() {
             shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png'
           });
           L.marker([lat, lng], {icon: greenIcon}).addTo(map).bindPopup(L.popup().setContent("Our Store"));
+          addCompetitors();
 
 		L.easyButton('fa-home', 
 			function(btn,map){
@@ -119,7 +120,7 @@ $(window).on('load', function() {
                     if (hash.has(key)){
                         hashItem = hash.get(key);
                     } else{
-                        hashItem.name = item["POST CODE"] + ' ' + item["DELIVERY ADDRESS"] + ' ' + item["ACCOUNT REFERENCE"];
+                        hashItem.name = item["POST CODE"];
                         hashItem.customers = new Set();
                         hashItem.date = "01.01.0001"
                         hashItem.coordinates = [item["Latitude"], item["Longitude"]];
@@ -176,6 +177,75 @@ $(window).on('load', function() {
             .setContent(popupText);
         
         var marker = L.marker(item.coordinates, { icon: markerIcon }).addTo(map).bindPopup(popup, {classname: 'tooltip'});
+    }
+
+    function addCompetitors(){
+
+        const redIcon = new LeafIcon({
+            iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png',
+            shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png'
+          });
+
+        let competitors = [
+            {
+                name: "Travis Perkins",
+                address: "46 Crown Rd, Enfield EN1 1TH, United Kingdom",
+                longitude: 51.649331415953924,
+                latitude: -0.05305316931048556
+            },
+            {
+                name: "Travis Perkins",
+                address: "Sopers Rd, Cuffley, Potters Bar EN6 4RY, United Kingdom",
+                longitude: 51.70718637843609, 
+                latitude: -0.10861714230223259
+            },
+            {
+                name: "Travis Perkins",
+                address: "Bridge Dr, Broomfield Ln, London N13 4EU, United Kingdom",
+                longitude: 51.616185881947935, 
+                latitude: -0.11174531349143212
+            },
+            {
+                name: "Build It Builders Merchants",
+                address: "Units 1 - 4 Leeside Works, Leeside Rd, London N17 0SG, United Kingdom",
+                longitude: 51.60643159680381, 
+                latitde: -0.04585818280191764
+            },
+            {
+                name: "Lawsons Edmonton - Timber, Building & Fencing Supplies",
+                address: "401 Montagu Rd, London N9 0HP, United Kingdom",
+                longitude: 51.62418938937044, 
+                latitude: -0.04757667116381069,
+            },
+            {
+                name: "Jewson Waltham Abbey",
+                address: "Bridge House Wharf, Lea Rd, Waltham Cross, Waltham Abbey EN9 1AZ, United Kingdom",
+                longitude: 51.686507910284924, 
+                latitude: -0.012429213491432082
+            },
+            {
+                name: "Builder Depot - New Southgate",
+                address: "Station Rd, Arnos Grove, London N11 1QJ, United Kingdom",
+                longitude: 51.612200479446706, 
+                latitude: -0.14028678280191761
+            },
+            {
+                name: "Selco Builders Warehouse",
+                address: "Crown Rd, Enfield EN1 1TX, United Kingdom",
+                longitude: 51.65265165770028, 
+                latitude: -0.05444899814667487
+            }
+        ];
+
+        for (var i = 0; i++; i < competitors.length){
+            var popupText = '<div><h3>';
+            popupText += '<br/>' + 'Name: ' + competitors[i].name;
+            popupText += '<br/>' + 'Address: ' + competitors[i].address;
+            popupText += '</h3></div>';
+            var popup = L.popup().setContent(popupText);
+
+            L.marker([competitors[i].latitude, competitors[i].longitude], {icon: redIcon}).addTo(map).bindPopup(popup);
+        }
     }
 
 });
