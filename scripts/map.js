@@ -50,6 +50,7 @@ $(window).on('load', function() {
 
         getObjects();
         addCompetitors();
+        drawBoundries();
 
     }
 
@@ -257,7 +258,27 @@ $(window).on('load', function() {
 
         });
 
+    };
 
+    function drawBoundries(){
+
+        var geojsonLayer = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/ShamsArtur/onestopbm-map/main/geodata/london.json", {
+			pointToLayer: function(feature, latlng) {
+				return new L.marker(latlng, {icon: shopIcon});
+			},
+			onEachFeature: function (f, l) {
+				
+				var popupText = '<div><h2>' + 
+								'Name: ' + f.properties.name;
+				popupText += '</h2></div>';
+                l.setStyle({ 
+                    weight: 2,
+                    color: 'white'
+                    /* fillColor: "green", fillOpacity: 0.4 */ });
+					
+                l.bindPopup(popupText);
+            }
+		}).addTo(map);
     }
 
 });
