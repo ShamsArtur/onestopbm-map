@@ -114,7 +114,7 @@ $(window).on('load', function() {
 
                     hashItem = {};
 
-                    var key = item["Longitudue"].toString() + '-' + item["Langitude"].toString();
+                    var key = item["Longitude"].toString() + '-' + item["Latitude"].toString();
 
                     if (hash.has(key)){
                         hashItem = hash.get(key);
