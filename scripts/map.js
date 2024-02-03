@@ -12,36 +12,35 @@ $(window).on('load', function() {
 		let config = {
             minZoom: 2,
             maxZoom: 18
-          };
+        };
   
-          // magnification with which the map will start
-          const zoom = 13;
-  
-          // co-ordinates
-          const lat = 51.66351928020173;
-          const lng = -0.044915512927555125;
-  
-          var LeafIcon = L.Icon.extend({
-              options: {
-                     iconSize:     [38, 95],
-                     shadowSize:   [50, 64],
-                     iconAnchor:   [22, 94],
-                     shadowAnchor: [4, 62],
-                     popupAnchor:  [-3, -76]
-              }
-          });
-  
-          map = L.map("map", config).setView([lat, lng], zoom);
+        // magnification with which the map will start
+        const zoom = 13;
 
-          L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
-          
-          const greenIcon = new LeafIcon({
+        // co-ordinates
+        const lat = 51.66351928020173;
+        const lng = -0.044915512927555125;
+
+        var LeafIcon = L.Icon.extend({
+            options: {
+                    iconSize:     [38, 95],
+                    shadowSize:   [50, 64],
+                    iconAnchor:   [22, 94],
+                    shadowAnchor: [4, 62],
+                    popupAnchor:  [-3, -76]
+            }
+        });
+
+        map = L.map("map", config).setView([lat, lng], zoom);
+
+        L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+        
+        const greenIcon = new LeafIcon({
             iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
             shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png'
-          });
-          L.marker([lat, lng], {icon: greenIcon}).addTo(map).bindPopup(L.popup().setContent("Our Store"));
-          addCompetitors();
-
+            });
+        L.marker([lat, lng], {icon: greenIcon}).addTo(map).bindPopup(L.popup().setContent("Our Store"));
+        
 		L.easyButton('fa-home', 
 			function(btn,map){
   				map.setView([lat, lng], 20);
@@ -50,6 +49,7 @@ $(window).on('load', function() {
 		L.Control.geocoder().addTo(map);
 
         getObjects();
+        addCompetitors();
 
     }
 
@@ -182,11 +182,11 @@ $(window).on('load', function() {
 
         var LeafIcon = L.Icon.extend({
             options: {
-                   iconSize:     [38, 95],
-                   shadowSize:   [50, 64],
-                   iconAnchor:   [22, 94],
-                   shadowAnchor: [4, 62],
-                   popupAnchor:  [-3, -76]
+                iconSize:     [38, 95],
+                shadowSize:   [50, 64],
+                iconAnchor:   [22, 94],
+                shadowAnchor: [4, 62],
+                popupAnchor:  [-3, -76]
             }
         });
 
