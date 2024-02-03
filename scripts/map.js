@@ -120,13 +120,13 @@ $(window).on('load', function() {
                         hashItem = hash.get(key);
                     } else{
                         hashItem.name = item["POST CODE"] + ' ' + item["DELIVERY ADDRESS"] + ' ' + item["ACCOUNT REFERENCE"];
-                        hashItem.customers = new Array();
+                        hashItem.customers = new Set();
                         hashItem.date = "01.01.0001"
                         hashItem.coordinates = [item["Latitude"], item["Longitude"]];
                         hashItem.sum = 0;
                     }
 
-                    hashItem.customers.push(item["ACCOUNT REFERENCE"]);
+                    hashItem.customers.add(item["ACCOUNT REFERENCE"]);
                     hashItem.sum += parseFloat(item["SUM OF INVOICE"]);
 
                     if (getDate(item["INVOICE DATE"]) > getDate(hashItem.date))
@@ -166,11 +166,11 @@ $(window).on('load', function() {
 
         const markerIcon = (diffDays < 7) ? greenMarker : redMarker;
 
-        var popupText = '<pre><h3>' + item.name;
-        popupText += '<br>Customers: ' + item.customers.join('<br/>');
+        var popupText = '<div>' + item.name;
+        popupText += '<br>Customers: ' + Array.from(item.customers).join('<br/>');
         popupText += '<br>Last Invoice Date: ' + item.date;
         popupText += '<br>Sum of invoices: ' + numberWithSpaces(item.sum);
-        popupText += '</pre></h3>';
+        popupText += '</div>';
         var popup = L.popup()
             .setContent(popupText);
         
