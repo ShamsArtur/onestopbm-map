@@ -166,11 +166,12 @@ $(window).on('load', function() {
 
         const markerIcon = (diffDays < 7) ? greenMarker : redMarker;
 
-        var popupText = '<div>' + item.name;
-        popupText += '<br>Customers: ' + Array.from(item.customers).join('<br/>');
+        var popupText = '<div><h4>' + item.name;
         popupText += '<br>Last Invoice Date: ' + item.date;
         popupText += '<br>Sum of invoices: ' + numberWithSpaces(item.sum);
-        popupText += '</div>';
+        popupText += '<br>';
+        popupText += '<br>Customers: ' + '<br/>' + Array.from(item.customers).join('<br/>');
+        popupText += '</div></h4>';
         var popup = L.popup()
             .setContent(popupText);
         
