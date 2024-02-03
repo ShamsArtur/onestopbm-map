@@ -114,18 +114,19 @@ $(window).on('load', function() {
 
                     hashItem = {};
 
-                    var key = item["DELIVERY ADDRESS"] + '-' + item["ACCOUNT REFERENCE"];
+                    var key = item["Longitudue"].toString() + '-' + item["Langitude"].toString();
 
                     if (hash.has(key)){
                         hashItem = hash.get(key);
                     } else{
-                        hashItem.name = item["POST CODE"] + ' ' + item["DELIVERY ADDRESS"];
-                        hashItem.customer = item["ACCOUNT REFERENCE"];
+                        hashItem.name = item["POST CODE"] + ' ' + item["DELIVERY ADDRESS"] + ' ' + item["ACCOUNT REFERENCE"];
+                        hashItem.customers = new Array();
                         hashItem.date = "01.01.0001"
                         hashItem.coordinates = [item["Latitude"], item["Longitude"]];
                         hashItem.sum = 0;
                     }
 
+                    hashItem.customers.push(item["ACCOUNT REFERENCE"]);
                     hashItem.sum += parseFloat(item["SUM OF INVOICE"]);
 
                     if (getDate(item["INVOICE DATE"]) > getDate(hashItem.date))
@@ -141,6 +142,12 @@ $(window).on('load', function() {
             });
         })
     };
+
+    function numberWithSpaces(x) {
+        var parts = x.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        return parts.join(".");
+    }
 
     function addMarkerToLayer(item){
         const redMarker = L.AwesomeMarkers.icon({
@@ -159,10 +166,11 @@ $(window).on('load', function() {
 
         const markerIcon = (diffDays < 7) ? greenMarker : redMarker;
 
-        var popupText = '<pre><h2>' + item.name;
-        popupText += '<br>Customer:' + item.customer;
+        var popupText = '<pre><h3>' + item.name;
+        popupText += '<br>Customer: ' + item.customers.join('<br/>');
         popupText += '<br>Last Invoice Date: ' + item.date;
-        popupText += '<br>Sum of invoices: ' + item.sum;
+        popupText += '<br>Sum of invoices: ' + numberWithSpaces(item.sum);
+        popupText += '</pre></h3>';
         var popup = L.popup()
             .setContent(popupText);
         
