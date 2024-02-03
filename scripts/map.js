@@ -168,7 +168,7 @@ $(window).on('load', function() {
 
         var popupText = '<div><h4>' + item.name;
         popupText += '<br>Last Invoice Date: ' + item.date;
-        popupText += '<br>Sum of invoices: ' + numberWithSpaces(item.sum);
+        popupText += '<br>Sum of invoices: ' + numberWithSpaces(item.sum.toFixed(2));
         popupText += '<br>';
         popupText += '<br>Customers: ' + '<br/>' + Array.from(item.customers).join('<br/>');
         popupText += '</div></h4>';
