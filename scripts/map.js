@@ -245,18 +245,19 @@ $(window).on('load', function() {
                 latitude: -0.05444899814667487
             }
         ];
-        console.log(competitors);
-
-        for (var i = 0; i++; i < competitors.length){
-            console.log(competitors[i]);
+        competitors.forEach((item)=>{
+            console.log(item);
             var popupText = '<div><h3>';
-            popupText += '<br/>' + 'Name: ' + competitors[i].name;
-            popupText += '<br/>' + 'Address: ' + competitors[i].address;
+            popupText += '<br/>' + 'Name: ' + item.name;
+            popupText += '<br/>' + 'Address: ' + item.address;
             popupText += '</h3></div>';
             var popup = L.popup().setContent(popupText);
 
-            L.marker([competitors[i].latitude, competitors[i].longitude], {icon: redIcon}).addTo(map).bindPopup(popup);
-        }
+            L.marker([item.latitude, item.longitude], {icon: redIcon}).addTo(map).bindPopup(popup);
+
+        });
+
+
     }
 
 });
