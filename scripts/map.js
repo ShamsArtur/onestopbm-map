@@ -137,7 +137,6 @@ $(window).on('load', function() {
                 });
 
                 hash.forEach(function(item){
-                    console.log(item);
                     addMarkerToLayer(item);
                 });
             });
@@ -190,7 +189,7 @@ $(window).on('load', function() {
                    popupAnchor:  [-3, -76]
             }
         });
-        
+
         const redIcon = new LeafIcon({
             iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-red.png',
             shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png'
@@ -248,6 +247,7 @@ $(window).on('load', function() {
         ];
 
         for (var i = 0; i++; i < competitors.length){
+            console.log(competitors[i]);
             var popupText = '<div><h3>';
             popupText += '<br/>' + 'Name: ' + competitors[i].name;
             popupText += '<br/>' + 'Address: ' + competitors[i].address;
