@@ -385,7 +385,7 @@ $(window).on('load', function() {
             "ZE.geojson"
         ]
 
-        paths.foreach((item)=>{
+        paths.forEach((item)=>{
             var geojsonLayer = new L.GeoJSON.AJAX("https://raw.githubusercontent.com/missinglink/uk-postcode-polygons/master/geojson/" + item, {
                 pointToLayer: function(feature, latlng) {
                     return new L.marker(latlng, {icon: shopIcon});
