@@ -218,7 +218,7 @@ $(window).on('load', function() {
                 name: "Build It Builders Merchants",
                 address: "Units 1 - 4 Leeside Works, Leeside Rd, London N17 0SG, United Kingdom",
                 longitude: 51.60643159680381, 
-                latitde: -0.04585818280191764
+                latitude: -0.04585818280191764
             },
             {
                 name: "Lawsons Edmonton - Timber, Building & Fencing Supplies",
