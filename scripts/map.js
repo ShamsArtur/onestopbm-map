@@ -100,13 +100,13 @@ $(window).on('load', function() {
             apiUrl + spreadsheetId + '?key=' + googleApiKey
         ).then(function(data){
             var sheets = data.sheets.map(function(o){ return o.properties.title})
-            if (sheets.length === 0 || !sheets.includes('Sheet1')){
+            if (sheets.length === 0 || !sheets.includes('Showing')){
                 alert('No data found');
                 return;
             }
     
             $.when(
-                $.getJSON(apiUrl + spreadsheetId + '/values/Sheet1?key=' + googleApiKey)
+                $.getJSON(apiUrl + spreadsheetId + '/values/Showing?key=' + googleApiKey)
             ).done(function(data){
 
                 var parsedData = parse([data]);
