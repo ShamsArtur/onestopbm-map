@@ -166,7 +166,7 @@ $(window).on('load', function() {
         var today = new Date();
         const diffDays = Math.ceil(Math.abs(today - getDate(item.date)) / (dayinmsseconds)); 
 
-        const markerIcon = (diffDays < 7) ? greenMarker : redMarker;
+        const markerIcon = (diffDays < 30) ? greenMarker : redMarker;
 
         var popupText = '<div><h4>' + item.name;
         popupText += '<br>Last Invoice Date: ' + item.date;
