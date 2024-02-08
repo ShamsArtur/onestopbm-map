@@ -56,7 +56,8 @@ $(window).on('load', function() {
 
     function getDate(dateString){
         let text = dateString.toString();
-        let d = text.split(".");
+        let separator = text.substring(2, 3);
+        let d = text.split(separator);
         let dat = new Date(d[2] + '/' + d[1] + '/' + d[0]);
         return dat;
     }
