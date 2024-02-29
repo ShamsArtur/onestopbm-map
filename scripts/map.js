@@ -55,15 +55,22 @@ $(window).on('load', function() {
     }
 
     function getDate(dateString){
+        console.log("get date");
+        console.log("date string: " + dateString)
         let text = dateString.toString();
         let separator = text.substring(2, 3);
         let d = text.split(separator);
+        console.log( "separated: " + d);
+        
+
         if (d[0].length == 1){
             d[0] = '0' + d[0]
         }
         if (d[1].length == 1){
             d[1] = '0' + d[1]
         }
+
+        console.log( "d after fix: " + d);
         let dat = new Date(d[2] + '/' + d[1] + '/' + d[0]);
         return dat;
     }
@@ -122,6 +129,8 @@ $(window).on('load', function() {
                 parsedData.forEach(function(item){
 
                     hashItem = {};
+
+                    console.log(item["INVOICE DATE"]);
 
                     var key = item["Longitude"].toString() + '-' + item["Latitude"].toString();
 
