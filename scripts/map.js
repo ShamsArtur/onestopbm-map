@@ -55,13 +55,20 @@ $(window).on('load', function() {
     }
 
     function getDate(dateString){
-        console.log("get date");
-        console.log("date string: " + dateString)
         let text = dateString.toString();
-        let separator = text.substring(2, 3);
+
+        var regexp = new RegExp("([^0-9])","g");
+        var separator;
+        var separators = regexp.exec("text");
+        if (separators){
+            separator = separators[0];
+        } else if (text.length == 10) {
+            separator = text.substring(2, 3);
+        } else if (text.length == 6){
+            separator = text.substring(1,2);
+        }
+
         let d = text.split(separator);
-        console.log( "separated: " + d);
-        
 
         if (d[0].length == 1){
             d[0] = '0' + d[0]
@@ -70,7 +77,6 @@ $(window).on('load', function() {
             d[1] = '0' + d[1]
         }
 
-        console.log( "d after fix: " + d);
         let dat = new Date(d[2] + '/' + d[1] + '/' + d[0]);
         return dat;
     }
