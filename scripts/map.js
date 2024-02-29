@@ -59,7 +59,7 @@ $(window).on('load', function() {
 
         var regexp = new RegExp("([^0-9])","g");
         var separator;
-        var separators = regexp.exec("text");
+        var separators = regexp.exec(text);
         console.log( "separators: " + separators);
         if (separators){
             separator = separators[0];
