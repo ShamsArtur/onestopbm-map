@@ -58,6 +58,12 @@ $(window).on('load', function() {
         let text = dateString.toString();
         let separator = text.substring(2, 3);
         let d = text.split(separator);
+        if (d[0].length == 1){
+            d[0] = '0' + d[0]
+        }
+        if (d[1].length == 1){
+            d[1] = '0' + d[1]
+        }
         let dat = new Date(d[2] + '/' + d[1] + '/' + d[0]);
         return dat;
     }
