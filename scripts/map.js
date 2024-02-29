@@ -60,22 +60,19 @@ $(window).on('load', function() {
         var regexp = new RegExp("([^0-9])","g");
         var separator;
         var separators = regexp.exec("text");
+        console.log( "separators: " + separators);
         if (separators){
             separator = separators[0];
         } else if (text.length == 10) {
             separator = text.substring(2, 3);
         } else if (text.length == 6){
             separator = text.substring(1,2);
+        } else {
+            separator = '/';
         }
+        console.log(separator);
 
         let d = text.split(separator);
-
-        if (d[0].length == 1){
-            d[0] = '0' + d[0]
-        }
-        if (d[1].length == 1){
-            d[1] = '0' + d[1]
-        }
 
         let dat = new Date(d[2] + '/' + d[1] + '/' + d[0]);
         return dat;
