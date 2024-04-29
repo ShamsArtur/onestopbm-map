@@ -55,12 +55,16 @@ $(window).on('load', function() {
     }
 
     function getDate(dateString){
+        if (!dateString){
+            return;
+        }
+
         let text = dateString.toString();
 
         var regexp = new RegExp("([^0-9])","g");
         var separator;
         var separators = regexp.exec(text);
-        console.log( "separators: " + separators);
+        
         if (separators){
             separator = separators[0];
         } else if (text.length == 10) {
@@ -70,7 +74,7 @@ $(window).on('load', function() {
         } else {
             separator = '/';
         }
-        console.log(separator);
+        
 
         let d = text.split(separator);
 
@@ -133,8 +137,6 @@ $(window).on('load', function() {
 
                     hashItem = {};
 
-                    console.log(item["INVOICE DATE"]);
-
                     var key = item["Longitude"].toString() + '-' + item["Latitude"].toString();
 
                     if (hash.has(key)){
@@ -150,7 +152,7 @@ $(window).on('load', function() {
                     hashItem.customers.add(item["ACCOUNT REFERENCE"]);
                     hashItem.sum += parseFloat(item["SUM OF INVOICE"]);
 
-                    if (getDate(item["INVOICE DATE"]) > getDate(hashItem.date))
+                    if ( item["INVOICE DATE"] && getDate(item["INVOICE DATE"]) > getDate(hashItem.date))
                         hashItem.date = item["INVOICE DATE"]
 
                     hash.set(key, hashItem);
@@ -184,7 +186,7 @@ $(window).on('load', function() {
         var today = new Date();
         const diffDays = Math.ceil(Math.abs(today - getDate(item.date)) / (dayinmsseconds)); 
 
-        const markerIcon = (diffDays < 30) ? greenMarker : redMarker;
+        const markerIcon = (diffDays < 30 || !item.date) ? greenMarker : redMarker;
 
         var popupText = '<div><h4>' + item.name;
         popupText += '<br>Last Invoice Date: ' + item.date;
